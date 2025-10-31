@@ -59,5 +59,12 @@ public final class InputValidator {
         }
     }
 
+    private static void validateBonusNumberRange(String userInput) {
+        int bonusNumber = Integer.parseInt(userInput);
+        if(bonusNumber <1 || bonusNumber > 45){
+            throw  new IllegalArgumentException("보너스 숫자는 1부터 45까지만 입력해 주세요.");
+        }
+    }
+
 
 }

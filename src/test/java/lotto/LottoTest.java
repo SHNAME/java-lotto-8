@@ -1,5 +1,8 @@
 package lotto;
 
+import java.util.Arrays;
+import lotto.util.generator.LottoNumberGenerator;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -21,5 +24,10 @@ class LottoTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    // TODO: 추가 기능 구현에 따른 테스트 코드 작성
+    @Test
+    void 로또_번호를_리스트_형태로_출력하는_테스트() {
+        List<Integer> lottoNumbers = List.of(1,2,3,4,5,6);
+        Assertions.assertEquals(lottoNumbers.toString(),
+                "[1, 2, 3, 4, 5, 6]");
+    }
 }

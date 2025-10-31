@@ -87,20 +87,45 @@ public class ValidationTest {
         Assertions.assertFalse(result);
     }
 
-   @Test
-    void 당첨_번호_숫자가_중복된_경우(){
-       List<Integer> numberList = List.of(1, 44, 3, 33, 1, 15);
-       Set<Integer> numberSet = new HashSet<>(numberList);
-       Assertions.assertNotEquals(numberSet.size(), numberList.size());
-   }
+    @Test
+    void 당첨_번호_숫자가_중복된_경우() {
+        List<Integer> numberList = List.of(1, 44, 3, 33, 1, 15);
+        Set<Integer> numberSet = new HashSet<>(numberList);
+        Assertions.assertNotEquals(numberSet.size(), numberList.size());
+    }
 
     @Test
-    void 당첨_번호_숫자가_중복이_없는_경우(){
+    void 당첨_번호_숫자가_중복이_없는_경우() {
         List<Integer> numberList = List.of(1, 44, 3, 33, 55, 15);
         Set<Integer> numberSet = new HashSet<>(numberList);
         Assertions.assertEquals(numberSet.size(), numberList.size());
     }
 
+    @Test
+    void 보너스_번호_형식이_잘못된_경우(){
+        String regex = "\\d+";
+        String userInput1 = "-32";
+        String userInput2 = "3.2";
+        String userInput3 = "032";
+        String userInput4 = "3 2";
+        Assertions.assertFalse(userInput1.matches(regex));
+        Assertions.assertFalse(userInput2.matches(regex));
+        Assertions.assertFalse(userInput3.matches(regex));
+        Assertions.assertFalse(userInput4.matches(regex));
+    }
+
+    @Test
+    void 보너스_번호_형식이_맞게_입력된_경우(){
+        String regex = "\\d+";
+        String userInput1 = "33";
+        String userInput2 = "123";
+        String userInput3 = "55";
+        String userInput4 = "3333";
+        Assertions.assertTrue(userInput1.matches(regex));
+        Assertions.assertTrue(userInput2.matches(regex));
+        Assertions.assertTrue(userInput3.matches(regex));
+        Assertions.assertTrue(userInput4.matches(regex));
+    }
 
 
 }

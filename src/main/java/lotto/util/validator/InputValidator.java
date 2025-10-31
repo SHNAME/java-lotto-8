@@ -1,6 +1,8 @@
 package lotto.util.validator;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public final class InputValidator {
     private static final String PURCHASE_PRICE = "^[1-9][0-9]*$";
@@ -29,11 +31,18 @@ public final class InputValidator {
         }
     }
 
-    private  static  void validateWinningNumberRange(List<Integer> winningNumbers){
-        if(winningNumbers.stream().anyMatch(num -> (num < 1) || (num > 45))){
+    private static void validateWinningNumberRange(List<Integer> winningNumbers) {
+        if (winningNumbers.stream().anyMatch(num -> (num < 1) || (num > 45))) {
             throw new IllegalArgumentException("당첨 번호 숫자는 1부터 45까지만 입력해 주세요.");
         }
 
+    }
+
+    private static void validateWinningNumberUnique(List<Integer> winningNumbers) {
+        Set<Integer> uniqueNumbers = new HashSet<>(winningNumbers);
+        if (uniqueNumbers.size() != winningNumbers.size()) {
+            throw new IllegalArgumentException("당첨 번호 숫자는 중복될 수 없습니다.");
+        }
     }
 
 

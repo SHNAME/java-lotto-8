@@ -44,4 +44,27 @@ public class ValidationTest {
         Assertions.assertEquals(0, (Integer.parseInt(input3) % 1000));
     }
 
+    @Test
+    void 당첨_번호에_형식이_잘못된_경우(){
+        String regex ="^\\d+(,\\d+){5}$";
+        String input1 = "1,2,3,4,5";
+        String input2 ="1,2,3,4,5,6,7";
+        String input3 = "1,2$3,4,5";
+        String input4 = "1, 2, 3, 4, 5";
+        Assertions.assertFalse(input1.matches(regex));
+        Assertions.assertFalse(input2.matches(regex));
+        Assertions.assertFalse(input3.matches(regex));
+        Assertions.assertFalse(input4.matches(regex));
+    }
+
+    @Test
+    void 당첨_번호에_형식이_올바르게_입력한_경우(){
+        String regex ="^\\d+(,\\d+){5}$";
+        String input1 = "1,2,3,4,5,6";
+        String input2 = "33,44,25,32,3232,100000";
+        Assertions.assertTrue(input1.matches(regex));
+        Assertions.assertTrue(input2.matches(regex));
+    }
+
+
 }

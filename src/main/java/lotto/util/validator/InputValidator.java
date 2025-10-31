@@ -31,7 +31,7 @@ public final class InputValidator {
 
     private  static  void validateWinningNumberRange(List<Integer> winningNumbers){
         if(winningNumbers.stream().anyMatch(num -> (num < 1) || (num > 45))){
-            throw new IllegalArgumentException("당첨 번호 숫자는 1부터 45까지만 입력해 주세요.")
+            throw new IllegalArgumentException("당첨 번호 숫자는 1부터 45까지만 입력해 주세요.");
         }
 
     }

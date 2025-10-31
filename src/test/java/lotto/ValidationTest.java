@@ -24,4 +24,24 @@ public class ValidationTest {
         Assertions.assertTrue(input2.matches(regex));
     }
 
+    @Test
+    void 로또_가격이_1000원으로_나눴을_때_나머지가_있는_경우(){
+        String input1 = "3250";
+        String input2 = "333";
+        String input3 = "1320";
+        Assertions.assertNotEquals(0, (Integer.parseInt(input1) % 1000));
+        Assertions.assertNotEquals(0, (Integer.parseInt(input2) % 1000));
+        Assertions.assertNotEquals(0, (Integer.parseInt(input3) % 1000));
+    }
+
+    @Test
+    void 로또_가격이_1000원으로_나눴을_때_나머지가_0_정상적인_경우(){
+        String input1 = "4000";
+        String input2 = "30000";
+        String input3 = "1000";
+        Assertions.assertEquals(0, (Integer.parseInt(input1) % 1000));
+        Assertions.assertEquals(0, (Integer.parseInt(input2) % 1000));
+        Assertions.assertEquals(0, (Integer.parseInt(input3) % 1000));
+    }
+
 }

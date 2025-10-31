@@ -3,7 +3,7 @@ package lotto.util.validator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import lotto.util.Parser;
+import lotto.util.parser.Parser;
 
 public final class InputValidator {
     private static final String PURCHASE_PRICE = "^[1-9][0-9]*$";
@@ -19,6 +19,11 @@ public final class InputValidator {
         validateWinningNumberFormat(userInput);
         validateWinningNumberRange(Parser.parseStringToList(userInput));
         validateWinningNumberUnique(Parser.parseStringToList(userInput));
+    }
+
+    public static void validateBonusNumber(String userInput) {
+        validateBonusNumberFormat(userInput);
+        validateBonusNumberRange(userInput);
     }
 
     private static void validatePriceFormat(String userInput) {
@@ -61,8 +66,8 @@ public final class InputValidator {
 
     private static void validateBonusNumberRange(String userInput) {
         int bonusNumber = Integer.parseInt(userInput);
-        if(bonusNumber <1 || bonusNumber > 45){
-            throw  new IllegalArgumentException("보너스 숫자는 1부터 45까지만 입력해 주세요.");
+        if (bonusNumber < 1 || bonusNumber > 45) {
+            throw new IllegalArgumentException("보너스 숫자는 1부터 45까지만 입력해 주세요.");
         }
     }
 

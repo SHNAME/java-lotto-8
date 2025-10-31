@@ -68,6 +68,21 @@ public class ValidationTest {
         Assertions.assertTrue(input2.matches(regex));
     }
 
+    @Test
+    void 당번_번호의_숫자가_1부터_45_범위가_아닌_경우() {
+        List<Integer> numberList = List.of(1, 0, 3, 47, 111, 22);
+        boolean result = numberList.stream().anyMatch(num ->
+                (num < 1) || (num > 45));
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void 당번_번호의_모든_숫자가_1부터_45_범위_내에_있는_경우() {
+        List<Integer> numberList = List.of(1, 44, 3, 33, 22, 15);
+        boolean result = numberList.stream().anyMatch(num ->
+                (num < 1) || (num > 45));
+        Assertions.assertFalse(result);
+    }
 
 
 

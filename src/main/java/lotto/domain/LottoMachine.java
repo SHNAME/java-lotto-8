@@ -23,25 +23,8 @@ public class LottoMachine {
     public Rank checkRank(List<Integer> lottoNumber) {
         List<Integer> intersectionNumbers = new ArrayList<>(lottoNumber);
         intersectionNumbers.retainAll(winningNumbers);
-        return calculateRank(intersectionNumbers.size(), lottoNumber);
+        return Rank.calculateRank(intersectionNumbers.size(),lottoNumber.contains(bonusNumber));
     }
 
-    private Rank calculateRank(int matchCount, List<Integer> lottoNumbers) {
-        if (matchCount == 6) {
-            return Rank.FIRST_PRIZE;
-        }
-        if (matchCount == 5 && lottoNumbers.contains(bonusNumber)) {
-            return Rank.SECOND_PRIZE;
-        }
-        if (matchCount == 5) {
-            return Rank.THIRD_PRIZE;
-        }
-        if (matchCount == 4) {
-            return Rank.FOURTH_PRIZE;
-        }
-        if (matchCount == 3) {
-            return Rank.THIRD_PRIZE;
-        }
-        return Rank.LOSING;
-    }
+
 }

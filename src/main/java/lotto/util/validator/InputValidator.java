@@ -8,13 +8,14 @@ import lotto.util.Parser;
 public final class InputValidator {
     private static final String PURCHASE_PRICE = "^[1-9][0-9]*$";
     private static final String WINNING_NUMBERS = "^\\d+(,\\d+){5}$";
+    private static final String BONUS_NUMBER = "\\d+";
 
     public static void validatePurchasePrice(String userInput) {
         validatePriceFormat(userInput);
         validateAmountUnit(userInput);
     }
 
-    public static void validateWinningNumbers(String userInput){
+    public static void validateWinningNumbers(String userInput) {
         validateWinningNumberFormat(userInput);
         validateWinningNumberRange(Parser.parseStringToList(userInput));
         validateWinningNumberUnique(Parser.parseStringToList(userInput));
@@ -49,6 +50,12 @@ public final class InputValidator {
         Set<Integer> uniqueNumbers = new HashSet<>(winningNumbers);
         if (uniqueNumbers.size() != winningNumbers.size()) {
             throw new IllegalArgumentException("당첨 번호 숫자는 중복될 수 없습니다.");
+        }
+    }
+
+    private static void validateBonusNumberFormat(String userInput) {
+        if (!userInput.matches(BONUS_NUMBER)) {
+            throw new IllegalArgumentException("보너스 번호를 잘못 입력하셨습니다.");
         }
     }
 

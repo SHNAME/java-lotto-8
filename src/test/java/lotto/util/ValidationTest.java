@@ -1,7 +1,10 @@
 package lotto.util;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -82,6 +85,20 @@ public class ValidationTest {
         boolean result = numberList.stream().anyMatch(num ->
                 (num < 1) || (num > 45));
         Assertions.assertFalse(result);
+    }
+
+   @Test
+    void 당첨_번호_숫자가_중복된_경우(){
+       List<Integer> numberList = List.of(1, 44, 3, 33, 1, 15);
+       Set<Integer> numberSet = new HashSet<>(numberList);
+       Assertions.assertNotEquals(numberSet.size(), numberList.size());
+   }
+
+    @Test
+    void 당첨_번호_숫자가_중복이_없는_경우(){
+        List<Integer> numberList = List.of(1, 44, 3, 33, 55, 15);
+        Set<Integer> numberSet = new HashSet<>(numberList);
+        Assertions.assertEquals(numberSet.size(), numberList.size());
     }
 
 

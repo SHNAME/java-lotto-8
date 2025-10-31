@@ -1,4 +1,4 @@
-package lotto.validator;
+package lotto.util.validator;
 
 public final class InputValidator {
     private static final String PURCHASE_PRICE = "^[1-9][0-9]*$";

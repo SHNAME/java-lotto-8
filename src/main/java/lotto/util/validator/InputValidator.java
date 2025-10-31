@@ -1,5 +1,7 @@
 package lotto.util.validator;
 
+import java.util.List;
+
 public final class InputValidator {
     private static final String PURCHASE_PRICE = "^[1-9][0-9]*$";
     private static final String WINNING_NUMBERS = "^\\d+(,\\d+){5}$";
@@ -25,6 +27,13 @@ public final class InputValidator {
         if (!userInput.matches(WINNING_NUMBERS)) {
             throw new IllegalArgumentException("당첨 번호를 잘못 입력하셨습니다.");
         }
+    }
+
+    private  static  void validateWinningNumberRange(List<Integer> winningNumbers){
+        if(winningNumbers.stream().anyMatch(num -> (num < 1) || (num > 45))){
+            throw new IllegalArgumentException("당첨 번호 숫자는 1부터 45까지만 입력해 주세요.")
+        }
+
     }
 
 

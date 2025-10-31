@@ -127,5 +127,22 @@ public class ValidationTest {
         Assertions.assertTrue(userInput4.matches(regex));
     }
 
+    @Test
+    void 보너스_번호의_숫자가_1부터_45_범위가_아닌_경우(){
+        String input = "54";
+        Assertions.assertTrue(Integer.parseInt(input) <1 ||
+                Integer.parseInt(input) >45);
+    }
+
+    @Test
+    void 보너스_번호의_숫자가_1부터_45_범위_내에_있는_경우 (){
+        String input1 = "44";
+        String input2 = "1";
+        Assertions.assertFalse(Integer.parseInt(input1) <1 ||
+                Integer.parseInt(input1) >45);
+        Assertions.assertFalse(Integer.parseInt(input2) <1 ||
+                Integer.parseInt(input1) >45);
+    }
+
 
 }

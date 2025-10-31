@@ -1,7 +1,6 @@
 package lotto;
 
-import java.util.Arrays;
-import lotto.util.generator.LottoNumberGenerator;
+import lotto.domain.Lotto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

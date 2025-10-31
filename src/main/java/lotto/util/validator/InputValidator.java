@@ -3,6 +3,7 @@ package lotto.util.validator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import lotto.util.Parser;
 
 public final class InputValidator {
     private static final String PURCHASE_PRICE = "^[1-9][0-9]*$";
@@ -11,6 +12,12 @@ public final class InputValidator {
     public static void validatePurchasePrice(String userInput) {
         validatePriceFormat(userInput);
         validateAmountUnit(userInput);
+    }
+
+    public static void validateWinningNumbers(String userInput){
+        validateWinningNumberFormat(userInput);
+        validateWinningNumberRange(Parser.parseStringToList(userInput));
+        validateWinningNumberUnique(Parser.parseStringToList(userInput));
     }
 
     private static void validatePriceFormat(String userInput) {

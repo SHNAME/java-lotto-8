@@ -35,9 +35,6 @@ public enum Rank {
         return rank.winningAmount;
     }
 
-    public int getMatchCount() {
-        return matchCount;
-    }
 
     public long getWinningAmount(){
         return winningAmount;

@@ -28,4 +28,10 @@ public enum Rank {
                         .filter(rank -> rank.matchCount == matchCount && rank.hasBonus == false)
                         .findFirst().orElse(Rank.LOSING));
     }
+
+    public static long getWinningAmount(Rank rank) {
+        return rank.winningAmount;
+    }
+
+
 }

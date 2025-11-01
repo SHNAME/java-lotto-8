@@ -1,7 +1,6 @@
 package lotto.constant;
 
 import java.util.Arrays;
-import java.util.List;
 
 public enum Rank {
     FIRST_PRIZE(6, 2_000_000_000, false),
@@ -26,7 +25,7 @@ public enum Rank {
                 .filter(rank -> rank.matchCount == matchCount && rank.hasBonus == bonusMatchResult)
                 .findFirst().
                 orElseGet(() -> Arrays.stream(Rank.values())
-                        .filter(rank -> rank.matchCount == matchCount && rank.hasBonus ==false)
+                        .filter(rank -> rank.matchCount == matchCount && rank.hasBonus == false)
                         .findFirst().orElse(Rank.LOSING));
     }
 }

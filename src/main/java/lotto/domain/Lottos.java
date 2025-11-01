@@ -2,11 +2,12 @@ package lotto.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import lotto.constant.Rank;
 import lotto.util.generator.LottoNumberGenerator;
 
 public class Lottos {
     private final List<Lotto> lottos = new ArrayList<>();
-
+    private List<Rank> result = new ArrayList<>();
     public Lottos(int count) {
         for (int i = 0; i < count; i++) {
             lottos.add(new Lotto(LottoNumberGenerator.createLottoNumbers()));
@@ -15,5 +16,11 @@ public class Lottos {
 
     public int getLottoCount() {
         return lottos.size();
+    }
+
+    public void checkLottoResult(LottoMachine lottoMachine){
+        for (Lotto lotto : lottos) {
+            result.add(lottoMachine.checkRank(lotto.getNumbers()));
+        }
     }
 }

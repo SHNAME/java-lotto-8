@@ -24,4 +24,8 @@ public class Lotto {
         numbers.sort(Integer::compareTo);
         return numbers.toString();
     }
+
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 }

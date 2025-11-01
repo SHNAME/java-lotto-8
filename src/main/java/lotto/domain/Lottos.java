@@ -1,6 +1,9 @@
 package lotto.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import lotto.constant.Rank;
 import lotto.util.generator.LottoNumberGenerator;
@@ -37,7 +40,17 @@ public class Lottos {
     public List<Lotto> getLottos() {
         return lottos;
     }
-    public List<Rank> getResult(){
-        return  result;
+
+    public List<Rank> getResult() {
+        return result;
+    }
+
+    public List<String> calculateStatics() {
+        return Arrays.stream(Rank.values())
+                .sorted(Comparator.comparingLong(r -> r.getWinningAmount()))
+                .filter(rank -> !rank.equals(Rank.LOSING))
+                .map(rank ->
+                        rank.getResultString() + " - " + Collections.frequency(result, rank) + "개"
+                ).toList();
     }
 }

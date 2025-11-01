@@ -32,4 +32,9 @@ public class Lottos {
         }
         return Math.round((((double) sum / (lottos.size() * 1000)) * 100) * 10) / 10.0;
     }
+
+
+    public List<Lotto> getLottos() {
+        return lottos;
+    }
 }

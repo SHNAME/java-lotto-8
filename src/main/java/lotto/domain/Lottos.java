@@ -37,4 +37,7 @@ public class Lottos {
     public List<Lotto> getLottos() {
         return lottos;
     }
+    public List<Rank> getResult(){
+        return  result;
+    }
 }

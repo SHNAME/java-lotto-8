@@ -24,4 +24,12 @@ public class Lottos {
             result.add(lottoMachine.checkRank(lotto.getNumbers()));
         }
     }
+
+    public double calculateRateOfReturn() {
+        long sum = 0L;
+        for (Rank rank : result) {
+            sum += Rank.getWinningAmount(rank);
+        }
+        return Math.round((((double) sum / (lottos.size() * 1000)) * 100) * 10) / 10.0;
+    }
 }

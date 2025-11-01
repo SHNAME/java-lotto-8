@@ -7,7 +7,8 @@ import lotto.util.generator.LottoNumberGenerator;
 
 public class Lottos {
     private final List<Lotto> lottos = new ArrayList<>();
-    private List<Rank> result = new ArrayList<>();
+    private final List<Rank> result = new ArrayList<>();
+
     public Lottos(int count) {
         for (int i = 0; i < count; i++) {
             lottos.add(new Lotto(LottoNumberGenerator.createLottoNumbers()));
@@ -18,7 +19,7 @@ public class Lottos {
         return lottos.size();
     }
 
-    public void checkLottoResult(LottoMachine lottoMachine){
+    public void checkLottoResult(LottoMachine lottoMachine) {
         for (Lotto lotto : lottos) {
             result.add(lottoMachine.checkRank(lotto.getNumbers()));
         }

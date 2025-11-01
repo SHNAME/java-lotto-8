@@ -13,7 +13,7 @@ public enum Rank {
     private final int matchCount;
     private final long winningAmount;
     private final boolean hasBonus;
-    private final String resultString
+    private final String resultString;
 
     Rank(int matchCount, long winningAmount, boolean hasBonus, String resultString) {
         this.matchCount = matchCount;
@@ -37,6 +37,14 @@ public enum Rank {
 
     public int getMatchCount() {
         return matchCount;
+    }
+
+    public long getWinningAmount(){
+        return winningAmount;
+    }
+
+    public String getResultString(){
+        return resultString;
     }
 
 

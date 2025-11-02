@@ -2,6 +2,8 @@ package lotto.view;
 
 import java.text.DecimalFormat;
 import java.util.List;
+import lotto.constant.ExceptionMessage;
+import lotto.constant.GuideMessage;
 import lotto.domain.Lotto;
 
 public final class OutputView {
@@ -25,6 +27,11 @@ public final class OutputView {
 
     public void printGuideMessage(String message){
         System.out.println(message);
+    }
+
+    public void printExceptionMessage(String message){
+        System.out.println(ExceptionMessage.ERROR +" " +message);
+        System.out.println(GuideMessage.INPUT_AGAIN);
     }
 
 

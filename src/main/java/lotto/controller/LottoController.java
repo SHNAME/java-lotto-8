@@ -26,13 +26,13 @@ public class LottoController {
 
     private void announceLottoResult(Lottos lottos, LottoMachine lottoMachine) {
         lottos.checkLottoResult(lottoMachine);
-        OutputView.printWinningStatistics(lottos.calculateStatics(), lottos.calculateRateOfReturn());
+        outputView.printWinningStatistics(lottos.calculateStatics(), lottos.calculateRateOfReturn());
     }
 
     private Lottos purchaseLottos(){
         Integer purchaseAmount = inputPurchaseAmount();
         Lottos purchasedLotto = new Lottos(purchaseAmount / 1000);
-        OutputView.printPurchaseLottoNumbers(purchasedLotto.getLottos());
+        outputView.printPurchaseLottoNumbers(purchasedLotto.getLottos());
         return purchasedLotto;
     }
 

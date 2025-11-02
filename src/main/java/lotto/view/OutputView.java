@@ -23,7 +23,7 @@ public final class OutputView {
         System.out.println("총 수익률은 " + df.format(rateOfReturn) + "%입니다.");
     }
 
-    public static void printMessageGuideMessage(String message){
+    public static void printGuideMessage(String message){
         System.out.println(message);
     }
 

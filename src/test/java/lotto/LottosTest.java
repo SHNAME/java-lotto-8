@@ -1,5 +1,7 @@
 package lotto;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.text.DecimalFormat;
 import java.util.List;
 import lotto.constant.Rank;
@@ -17,15 +19,13 @@ public class LottosTest {
 
     @Test
     void 구매한_로또의_수익률을_계산한다() {
-        List<Rank> result = List.of(Rank.FIFTH_PRIZE, Rank.FIRST_PRIZE, Rank.LOSING, Rank.LOSING);
+        List<Rank> result = List.of(Rank.FIFTH_PRIZE, Rank.LOSING, Rank.LOSING, Rank.LOSING);
         long sum = 0L;
         for (Rank rank : result) {
             sum += Rank.getWinningAmount(rank);
         }
-        double pie = 3.14592635;
-        System.out.println(Math.round((pie * 10))/10.0);
-        double calculationResult = Math.round((((double) sum /(result.size()* 1000)) * 100) *10) /10.0 ;
-        DecimalFormat df = new DecimalFormat("#,###.#");
-        System.out.println("총 수익률은 "+df.format(calculationResult) +"%입니다.");
+        double calculationResult = Math.round((((double) sum / (result.size() * 1000)) * 100) * 10) / 10.0;
+        DecimalFormat df = new DecimalFormat("#,###.0");
+        Assertions.assertThat(df.format(calculationResult)).isEqualTo("125.0");
     }
 }

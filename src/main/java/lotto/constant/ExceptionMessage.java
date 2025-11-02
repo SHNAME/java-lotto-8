@@ -9,7 +9,8 @@ public enum ExceptionMessage {
     WINNING_NUMBERS_FORMAT_INVALID("당첨 번호 입력 형식이 올바르지 않습니다. 숫자를 쉼표(,)로 구분해주세요. 예: 1,2,3,4,5,6"),
     WINNING_NUMBERS_RANGE_INVALID("당첨 번호는 1부터 45 사이의 값만 가능합니다."),
     BONUS_NUMBER_FORMAT_INVALID("보너스 번호 형식이 올바르지 않습니다. 숫자만 입력해주세요."),
-    BONUS_NUMBER_RANGE_INVALID("보너스 번호는 1부터 45 가이의 값만 가능합니다.");
+    BONUS_NUMBER_RANGE_INVALID("보너스 번호는 1부터 45 가이의 값만 가능합니다."),
+    ERROR("[ERROR]");
 
 
     private final String message;

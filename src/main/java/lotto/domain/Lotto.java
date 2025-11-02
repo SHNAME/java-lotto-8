@@ -25,8 +25,8 @@ public class Lotto {
 
     @Override
     public String toString() {
-        numbers.sort(Integer::compareTo);
-        return numbers.toString();
+        List<Integer> sortedList = numbers.stream().sorted().toList();
+        return sortedList.toString();
     }
 
     public List<Integer> getNumbers() {

@@ -30,7 +30,7 @@ public final class OutputView {
     }
 
     public void printExceptionMessage(String message){
-        System.out.println(ExceptionMessage.ERROR +" " +message);
+        System.out.println(ExceptionMessage.ERROR.getMessage() +" " +message);
         System.out.println(GuideMessage.INPUT_AGAIN);
     }
 

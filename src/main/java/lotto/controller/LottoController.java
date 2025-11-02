@@ -45,7 +45,7 @@ public class LottoController {
                 lottoMachine = new LottoMachine(winningNumber,bonusNumber);
                 break;
             }catch (IllegalArgumentException e){
-                outputView.printGuideMessage(e.getMessage());
+                outputView.printExceptionMessage(e.getMessage());
             }
         }
         return lottoMachine;
@@ -60,7 +60,7 @@ public class LottoController {
                 InputValidator.validatePurchasePrice(purchaseAmount);
                 break;
             } catch (IllegalArgumentException e) {
-                outputView.printGuideMessage(e.getMessage());
+                outputView.printExceptionMessage(e.getMessage());
             }
         }
         System.out.println();
@@ -76,7 +76,7 @@ public class LottoController {
                 InputValidator.validateWinningNumbers(winningNumber);
                 break;
             } catch (IllegalArgumentException e) {
-                outputView.printGuideMessage(e.getMessage());
+                outputView.printExceptionMessage(e.getMessage());
             }
         }
         System.out.println();
@@ -92,7 +92,7 @@ public class LottoController {
                 InputValidator.validateBonusNumber(bonusNumber);
                 break;
             } catch (IllegalArgumentException e) {
-                outputView.printGuideMessage(e.getMessage());
+                outputView.printExceptionMessage(e.getMessage());
             }
         }
         System.out.println();

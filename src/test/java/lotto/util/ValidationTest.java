@@ -103,7 +103,7 @@ public class ValidationTest {
 
     @Test
     void 보너스_번호_형식이_잘못된_경우(){
-        String regex = "\\d+";
+        String regex = "^(0|[1-9]\\d)$";
         String userInput1 = "-32";
         String userInput2 = "3.2";
         String userInput3 = "032";

@@ -17,7 +17,8 @@ public final class OutputView {
     }
 
     public void printWinningStatistics(List<String> ranks, double rateOfReturn) {
-        System.out.println("당첨 통계\n");
+        System.out.println("당첨 통계");
+        System.out.println("---");
         for (String rank : ranks) {
             System.out.println(rank);
         }

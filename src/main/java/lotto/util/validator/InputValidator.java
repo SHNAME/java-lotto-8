@@ -9,7 +9,7 @@ import lotto.util.parser.Parser;
 public final class InputValidator {
     private static final String PURCHASE_PRICE = "^[1-9][0-9]*$";
     private static final String WINNING_NUMBERS = "^\\d+(,\\d+){5}$";
-    private static final String BONUS_NUMBER = "(0|[1-9]\\d)$";
+    private static final String BONUS_NUMBER = "(0|[1-9][0-9]*)";
 
     public static void validatePurchasePrice(String userInput) {
         validatePriceFormat(userInput);

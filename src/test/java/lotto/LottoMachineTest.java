@@ -16,9 +16,8 @@ public class LottoMachineTest {
     void 로또_당첨_번호_관리_기능_테스트_중복() {
         List<Integer> winningNumber = List.of(1, 2, 3, 4, 5, 33);
         Integer bonusNumber = 33;
-        LottoMachine lottoMachine = new LottoMachine(winningNumber, bonusNumber);
-        boolean result = winningNumber.stream().anyMatch(num -> num.equals(bonusNumber));
-        Assertions.assertTrue(result);
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> new LottoMachine(winningNumber, bonusNumber))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("로또 번호와 보너스 번호 사이에 중복이 없는 경우")

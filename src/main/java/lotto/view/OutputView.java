@@ -22,7 +22,7 @@ public final class OutputView {
         for (String rank : ranks) {
             System.out.println(rank);
         }
-        DecimalFormat df = new DecimalFormat("#,###.#");
+        DecimalFormat df = new DecimalFormat("#,###.0");
         System.out.println("총 수익률은 " + df.format(rateOfReturn) + "%입니다.");
     }
 

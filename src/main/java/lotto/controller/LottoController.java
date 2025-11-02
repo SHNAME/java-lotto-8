@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import java.util.List;
+import lotto.constant.GuideMessage;
 import lotto.domain.LottoMachine;
 import lotto.domain.Lottos;
 import lotto.util.parser.Parser;
@@ -51,7 +52,7 @@ public class LottoController {
     }
 
     private Integer inputPurchaseAmount() {
-        outputView.printGuideMessage("구입금액을 입력해 주세요");
+        outputView.printGuideMessage(GuideMessage.PURCHASE_AMOUNT.getMessage());
         String purchaseAmount;
         while (true) {
             try {
@@ -67,7 +68,7 @@ public class LottoController {
     }
 
     private List<Integer> inputWinningNumber() {
-        outputView.printGuideMessage("당첨 번호를 입력해 주세요");
+        outputView.printGuideMessage(GuideMessage.WINNING_NUMBER.getMessage());
         String winningNumber;
         while (true) {
             try {
@@ -83,7 +84,7 @@ public class LottoController {
     }
 
     private Integer inputBonusNumber() {
-        outputView.printGuideMessage("보너스 번호를 입력해 주세요");
+        outputView.printGuideMessage(GuideMessage.BONUS_NUMBER.getMessage());
         String bonusNumber;
         while (true) {
             try {

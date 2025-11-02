@@ -3,6 +3,7 @@ package lotto.util.validator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import lotto.constant.ExceptionMessage;
 import lotto.util.parser.Parser;
 
 public final class InputValidator {
@@ -28,25 +29,25 @@ public final class InputValidator {
 
     private static void validatePriceFormat(String userInput) {
         if (!userInput.matches(PURCHASE_PRICE)) {
-            throw new IllegalArgumentException("구매 가격을 잘못 입력하셨습니다.");
+            throw new IllegalArgumentException(ExceptionMessage.PRICE_FORMAT_INVALID.getMessage());
         }
     }
 
     private static void validateAmountUnit(String userInput) {
         if ((Integer.parseInt(userInput) % 1000) != 0) {
-            throw new IllegalArgumentException("1000원 단위로 입력해주세요");
+            throw new IllegalArgumentException(ExceptionMessage.PURCHASE_UNIT_INVALID.getMessage());
         }
     }
 
     private static void validateWinningNumberFormat(String userInput) {
         if (!userInput.matches(WINNING_NUMBERS)) {
-            throw new IllegalArgumentException("당첨 번호를 잘못 입력하셨습니다.");
+            throw new IllegalArgumentException(ExceptionMessage.WINNING_NUMBERS_FORMAT_INVALID.getMessage());
         }
     }
 
     private static void validateWinningNumberRange(List<Integer> winningNumbers) {
         if (winningNumbers.stream().anyMatch(num -> (num < 1) || (num > 45))) {
-            throw new IllegalArgumentException("당첨 번호 숫자는 1부터 45까지만 입력해 주세요.");
+            throw new IllegalArgumentException(ExceptionMessage.WINNING_NUMBERS_RANGE_INVALID.getMessage());
         }
 
     }
@@ -54,20 +55,20 @@ public final class InputValidator {
     private static void validateWinningNumberUnique(List<Integer> winningNumbers) {
         Set<Integer> uniqueNumbers = new HashSet<>(winningNumbers);
         if (uniqueNumbers.size() != winningNumbers.size()) {
-            throw new IllegalArgumentException("당첨 번호 숫자는 중복될 수 없습니다.");
+            throw new IllegalArgumentException(ExceptionMessage.WINNING_NUMBERS_DUPLICATION.getMessage());
         }
     }
 
     private static void validateBonusNumberFormat(String userInput) {
         if (!userInput.matches(BONUS_NUMBER)) {
-            throw new IllegalArgumentException("보너스 번호를 잘못 입력하셨습니다.");
+            throw new IllegalArgumentException(ExceptionMessage.BONUS_NUMBER_FORMAT_INVALID.getMessage());
         }
     }
 
     private static void validateBonusNumberRange(String userInput) {
         int bonusNumber = Integer.parseInt(userInput);
         if (bonusNumber < 1 || bonusNumber > 45) {
-            throw new IllegalArgumentException("보너스 숫자는 1부터 45까지만 입력해 주세요.");
+            throw new IllegalArgumentException(ExceptionMessage.BONUS_NUMBER_RANGE_INVALID.getMessage());
         }
     }
 

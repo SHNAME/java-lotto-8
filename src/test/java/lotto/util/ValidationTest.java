@@ -103,15 +103,15 @@ public class ValidationTest {
 
     @Test
     void 보너스_번호_형식이_잘못된_경우(){
-        String regex = "^(0|[1-9]\\d)$";
+        String regex = "^(0|[1-9][0-9]*)$";
         String userInput1 = "-32";
         String userInput2 = "3.2";
         String userInput3 = "032";
-        String userInput4 = "3 2";
+        String userInput4 = "32";
         Assertions.assertFalse(userInput1.matches(regex));
         Assertions.assertFalse(userInput2.matches(regex));
         Assertions.assertFalse(userInput3.matches(regex));
-        Assertions.assertFalse(userInput4.matches(regex));
+        Assertions.assertTrue(userInput4.matches(regex));
     }
 
     @Test

@@ -2,6 +2,7 @@ package lotto.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import lotto.constant.ExceptionMessage;
 import lotto.constant.Rank;
 
 public class LottoMachine {
@@ -16,7 +17,7 @@ public class LottoMachine {
 
     private void validateNoDuplicateWithBonusNumber(List<Integer> winningNumbers, Integer bonusNumber) {
         if (winningNumbers.stream().anyMatch(lottoNumber -> lottoNumber.equals(bonusNumber))) {
-            throw new IllegalArgumentException("당첨 번호와 보너스 번호 사이에 중복은 없어야 합니다.");
+            throw new IllegalArgumentException(ExceptionMessage.BETWEEN_WINNING_NUMBERS_AND_BONUS_NUMBER.getMessage());
         }
     }
 
